@@ -13,5 +13,7 @@ public interface IEmployeeService {
 	public Employee getEmployeeById(Integer id);
 	
 	public void deleteEmployee(Integer id);
+	
+	public Employee updateEmployee(Employee e , Integer id);
 
 }

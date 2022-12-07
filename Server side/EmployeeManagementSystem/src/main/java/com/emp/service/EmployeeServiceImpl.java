@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.emp.entity.Employee;
+import com.emp.exception.ResourceNotFoundExceptionHandler;
 import com.emp.repository.EmployeeRepository;
 
 
@@ -42,6 +43,19 @@ public class EmployeeServiceImpl implements IEmployeeService {
 		
 		employeeRepository.deleteById(id);
 		
+	}
+
+	@Override
+	public Employee updateEmployee(Employee e, Integer id) {
+		// TODO Auto-generated method stub
+		Employee oldEmployeeValue = employeeRepository.findById(id).orElseThrow(
+				() -> new ResourceNotFoundExceptionHandler("Employee", "id", Integer.toString(id)));
+		oldEmployeeValue.setName(e.getName());
+		oldEmployeeValue.setPosition(e.getPosition());
+		oldEmployeeValue.setEmail(e.getEmail());
+		oldEmployeeValue.setSalary(e.getSalary());
+		Employee emp = employeeRepository.save(oldEmployeeValue);
+		return emp;
 	}
 
 }
