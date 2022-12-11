@@ -4,12 +4,14 @@ import com.service.book.entity.Book;
 
 public interface IBookService {
 
-	public Book addBook(Book b);
+	public Book addBook(Book b, Integer authorId);
 
 	public Book editBook(Book b, Integer bookId);
+	
+	public Book getBookBySubId(String userEmail , Integer subscriptionId);
 
-	public Boolean blockBook(String block);
-
-	public Boolean unblockBook(String block);
+	public Boolean setBookState(String block);
+	
+	public Boolean cancelSubscription(Integer subscriptionId);
 
 }

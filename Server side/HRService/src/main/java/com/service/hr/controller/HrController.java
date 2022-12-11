@@ -26,7 +26,7 @@ public class HrController {
 	@GetMapping("/{HrId}")
 	public HR getHr(@PathVariable("HrId") Long id) {
 		HR hr = hrService.getHR(id);
-		List resources = this.restTemplate.getForObject("http://localhost:6000/resource/hr/" + id, List.class);
+		List resources = this.restTemplate.getForObject("http://RESOURCE-SERVICE/resource/hr/" + id, List.class);
 		hr.setResource(resources);
 		return hr;
 	}

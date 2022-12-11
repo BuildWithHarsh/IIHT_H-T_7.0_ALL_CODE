@@ -1,6 +1,5 @@
 package com.service.book.entity;
 
-import java.sql.Blob;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -14,7 +13,7 @@ public class Book {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer bookId;
-	private Blob logo;
+	private String logo;
 	private String title;
 	private String category;
 	private Double price;
@@ -23,6 +22,16 @@ public class Book {
 	private Date publishedDate;
 	private String content;
 	private boolean active;
+	
+	public Integer getAuthorId() {
+		return authorId;
+	}
+
+	public void setAuthorId(Integer authorId) {
+		this.authorId = authorId;
+	}
+
+	private Integer authorId;
 
 	public Integer getBookId() {
 		return bookId;
@@ -32,11 +41,11 @@ public class Book {
 		this.bookId = bookId;
 	}
 
-	public Blob getLogo() {
+	public String getLogo() {
 		return logo;
 	}
 
-	public void setLogo(Blob logo) {
+	public void setLogo(String logo) {
 		this.logo = logo;
 	}
 
@@ -109,7 +118,7 @@ public class Book {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Book(Blob logo, String title, String category, Double price, String author, String publisher,
+	public Book(String logo, String title, String category, Double price, String author, String publisher,
 			Date publishedDate, String content, boolean active) {
 		super();
 		this.logo = logo;
@@ -123,8 +132,8 @@ public class Book {
 		this.active = active;
 	}
 
-	public Book(Integer bookId, Blob logo, String title, String category, Double price, String author, String publisher,
-			Date publishedDate, String content, boolean active) {
+	public Book(Integer bookId, String logo, String title, String category, Double price, String author,
+			String publisher, Date publishedDate, String content, boolean active) {
 		super();
 		this.bookId = bookId;
 		this.logo = logo;
