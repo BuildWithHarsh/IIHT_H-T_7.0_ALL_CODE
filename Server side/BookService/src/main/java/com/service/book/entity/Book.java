@@ -22,7 +22,8 @@ public class Book {
 	private Date publishedDate;
 	private String content;
 	private boolean active;
-	
+	private Integer authorId;
+
 	public Integer getAuthorId() {
 		return authorId;
 	}
@@ -30,8 +31,6 @@ public class Book {
 	public void setAuthorId(Integer authorId) {
 		this.authorId = authorId;
 	}
-
-	private Integer authorId;
 
 	public Integer getBookId() {
 		return bookId;

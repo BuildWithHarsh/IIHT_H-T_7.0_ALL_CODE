@@ -9,6 +9,8 @@ public interface IUserService {
 	public User addUser(User u);
 
 	public List<User> getAllUsers();
+	
+	public User getUserById(Integer id);
 
 	public User updateUser(User u, Integer id);
 

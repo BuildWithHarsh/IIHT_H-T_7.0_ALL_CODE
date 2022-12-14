@@ -1,21 +1,22 @@
-package com.mgmt.lib.exception;
+package com.service.user.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(value = HttpStatus.NOT_FOUND)
-public class BookNotFoundExceptionhandler extends RuntimeException {
-	private static final long serialVersionUID = 1L;
-	private String resourceName;
+public class UserNotFoundExceptionHandler extends RuntimeException {
+
+	private static final long serialVersionUID = -3520094897410799577L;
+	private String entity;
 	private String fieldName;
 	private String fieldValue;
 
-	public String getResourceName() {
-		return resourceName;
+	public String getEntity() {
+		return entity;
 	}
 
-	public void setResourceName(String resourceName) {
-		this.resourceName = resourceName;
+	public void setEntity(String entity) {
+		this.entity = entity;
 	}
 
 	public String getFieldName() {
@@ -34,10 +35,11 @@ public class BookNotFoundExceptionhandler extends RuntimeException {
 		this.fieldValue = fieldValue;
 	}
 
-	public BookNotFoundExceptionhandler(String resourceName, String fieldName, String fieldValue) {
-		super(String.format("%s is not found with %s : %s", resourceName, fieldName, fieldValue));
-		this.resourceName = resourceName;
+	public UserNotFoundExceptionHandler(String entity, String fieldName, String fieldValue) {
+		super(String.format("%s with %s : %s was not found", entity, fieldName, fieldValue));
+		this.entity = entity;
 		this.fieldName = fieldName;
 		this.fieldValue = fieldValue;
 	}
+
 }
