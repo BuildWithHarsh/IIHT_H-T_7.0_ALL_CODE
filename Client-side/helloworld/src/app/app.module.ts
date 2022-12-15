@@ -6,19 +6,25 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './Components/home/home.component';
 import { UserformComponent } from './Components/userform/userform.component';
 import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { NavbarComponent } from './Components/navbar/navbar.component';
+import {MatListModule} from '@angular/material/list'; 
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    UserformComponent
+    UserformComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    BrowserAnimationsModule
+    NoopAnimationsModule,
+    MatListModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
